@@ -1,0 +1,39 @@
+:local {
+  .rowdata {
+    border-top: 1px solid rgb(225, 228, 232);
+    background-color: white;
+    min-height: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .rowdata:hover {
+    background-color: rgb(246, 248, 250);
+  }
+  .textgray {
+    color: rgb(88, 96, 105);
+    line-height: 1.25;
+    font-size: 12px;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    a {
+      color: black;
+      font-size: 16px;
+      line-height: 1.25;
+      text-decoration: none;
+    }
+    a:hover {
+      color: rgb(3, 102, 214);
+    }
+  }
+  .Footer {
+    display: flex;
+  }
+  .messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
