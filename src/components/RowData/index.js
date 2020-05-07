@@ -5,18 +5,10 @@ import Styles from "./styles/Styles.module.scss";
 import SvgInfo from "../../assets/Svg/info";
 import SvgMessages from "../../assets/Svg/messages";
 
-const RowData = ({
-  title = "create-react-app tutorial from reactjs.org differs than cmd line options",
-  Label,
-  messages,
-  number,
-  user,
-  updated_at,
-  state,
-}) => {
+const RowData = ({ data }) => {
   return (
     <div className={Styles.rowdata}>
-      <div>
+      <div className={Styles.infor}>
         <Router>
           <Link to="/">
             <SvgInfo />
@@ -24,28 +16,29 @@ const RowData = ({
         </Router>
       </div>
       <div className={Styles.body}>
-        <Router>
-          <Link to="/">{title}</Link>
-          <Link to="/">{Label}</Link>
-          <Link to="/">{messages}</Link>
-        </Router>
+        <div className={Styles.header}>
+          <Router>
+            <Link to="/">{data.title}</Link>
+            <Link to="/">ds</Link>
+          </Router>
+        </div>
 
         <div className={Styles.Footer}>
-          <p className={Styles.textgray}>#{number}</p>
-          <p className={Styles.textgray}>{state}</p>
-          <p className={Styles.textgray}>{updated_at}</p>
-          <p className={Styles.textgray}>by {user}</p>
+          <p className={Styles.textgray}>#{data.number}</p>
+          <p className={Styles.textgray}>{data.state}</p>
+          <p className={Styles.textgray}>{data.updated_at}</p>
+          <p className={Styles.textgray}>by {data.user.login}</p>
         </div>
       </div>
       <div className={Styles.messages}>
         <Router>
-          <Link to="/">{messages}</Link>
+          <Link to="/"></Link>
         </Router>
         <Router>
           <Link to="/">
             <SvgMessages />
           </Link>
-          <span>1</span>
+          <span>{data.comments}</span>
         </Router>
       </div>
     </div>
@@ -53,7 +46,7 @@ const RowData = ({
 };
 
 RowData.propTypes = {
-  title: PropTypes.string,
+  //data: PropTypes.array,
 };
 
 export default RowData;

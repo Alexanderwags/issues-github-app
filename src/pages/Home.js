@@ -1,18 +1,21 @@
 import React from "react";
 import TableData from "../components/TableData";
 import RowData from "../components/RowData";
-import GetData from "../Api/GetData";
+import GetDat from "../Api/GetDat";
 import Data from "../assets/dataText.json";
 
 const Home = () => {
+  const [page, setPage] = React.useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
   return (
     <div>
       <TableData>
-        <RowData />
+        {Data.map((inf) => {
+          return <RowData data={inf} key={inf.id} />;
+        })}
       </TableData>
-      {Data.map((inf) => {
-        return <GetData data={inf} />;
-      })}
     </div>
   );
 };
