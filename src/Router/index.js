@@ -7,9 +7,12 @@ import Modal from "../components/Modal";
 import "../Global/Styles.scss";
 
 function Router() {
+  function GetInfo(owner, repo) {
+    console.log(owner, repo);
+  }
   return (
     <>
-      <Modal />
+      <Modal GetInfo={GetInfo} />
       <Header />
       <Home />
     </>

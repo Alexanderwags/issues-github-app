@@ -4,6 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import TextField from "@material-ui/core/TextField";
 import { FormControl, Button } from "@material-ui/core";
 import "./styles/Styles.scss";
+import PropTypes from "prop-types";
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal({ GetInfo }) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
@@ -46,6 +47,7 @@ export default function SimpleModal() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    GetInfo(owner, repo);
   };
 
   function onChangeOwner(e) {
@@ -110,3 +112,6 @@ export default function SimpleModal() {
     </div>
   );
 }
+SimpleModal.propTypes = {
+  GetInfo: PropTypes.func.isRequired,
+};
