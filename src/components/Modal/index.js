@@ -47,7 +47,11 @@ export default function SimpleModal({ GetInfo }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    GetInfo(owner, repo);
+    try {
+      GetInfo(owner, repo);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   function onChangeOwner(e) {
