@@ -10,6 +10,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
+
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -19,6 +21,21 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div
+      id="root"
+      data-aos="fade-zoom-in"
+      data-aos-offset="200"
+      data-aos-easing="ease-in-sine"
+      data-aos-duration="600"
+    ></div>
   </body>
+  <script src="bower_components/aos/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+  </script>
 </html>
