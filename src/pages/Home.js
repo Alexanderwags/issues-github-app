@@ -3,7 +3,7 @@ import TableData from "../components/TableData";
 import RowData from "../components/RowData";
 import GetDat from "../Api/GetDat";
 import Pagination from "@material-ui/lab/Pagination";
-
+import Styles from "./styles/Home/Styles.module.scss";
 const Home = ({ Data, pagi = 2 }) => {
   const [page, setPage] = useState(1);
 
@@ -34,6 +34,7 @@ const Home = ({ Data, pagi = 2 }) => {
         page={page}
         onChange={handleChange}
         color="primary"
+        className={Styles.pagin}
       />
     </div>
   );

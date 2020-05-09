@@ -1,11 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { BrowserRouter as Router, Link, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
 import SvgInfo from "../../assets/Svg/info";
 import SvgMessages from "../../assets/Svg/messages";
 
 const RowData = ({ data }) => {
+  function showMessages() {
+    if (data.comments === 0) {
+      return <></>;
+    } else {
+      return (
+        <>
+          <Link to="/comments"></Link>
+
+          <Link
+            to={{
+              pathname: "/comments",
+              state: { detail: data.comments_url },
+            }}
+          >
+            <SvgMessages />
+          </Link>
+          <span>{data.comments}</span>
+        </>
+      );
+    }
+  }
   return (
     <div className={Styles.rowdata}>
       <div className={Styles.infor}>
@@ -26,19 +52,7 @@ const RowData = ({ data }) => {
           <p className={Styles.textgray}>by {data.user.login}</p>
         </div>
       </div>
-      <div className={Styles.messages}>
-        <Link to="/comments">test</Link>
-
-        <Link
-          to={{
-            pathname: "/comments",
-            state: { detail: data.comments_url },
-          }}
-        >
-          <SvgMessages />
-        </Link>
-        <span>{data.comments}</span>
-      </div>
+      <div className={Styles.messages}>{showMessages()}</div>
     </div>
   );
 };
