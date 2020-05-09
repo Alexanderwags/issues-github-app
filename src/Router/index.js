@@ -1,25 +1,30 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Routerr,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Routerr, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
 import Home from "../pages/Home";
+import Comments from "../pages/Comments";
 import Data from "../assets/dataText.json";
 import Modal from "../components/Modal";
+import { GetData } from "../Api/GetData";
 import "../Global/Styles.scss";
 
 function Router() {
   const [owner, setowner] = useState("");
   const [repo, setrepo] = useState("");
   const [pagi, setpagi] = useState(0);
+  const [band, setband] = useState(false);
+  const [inf, setinf] = GetData(owner, repo, band);
   function GetInfo(ow, rep) {
     console.log(owner, repo);
     setowner(ow);
     setrepo(rep);
-    setpagi(Data.length / 10);
+    setband(true);
+    try {
+      setpagi(Data.length / 10);
+      console.log(inf);
+    } catch (e) {
+      console.log(e);
+    }
   }
   return (
     <>
@@ -36,9 +41,7 @@ function Router() {
           <Route
             exact
             path="/comments"
-            render={(props) => (
-              <h1>comentarios{console.log(props.location.state)}</h1>
-            )}
+            render={(props) => <Comments api={props.location.state} />}
           />
           <Route render={() => <h1>No encontrado</h1>} /> />
         </Switch>

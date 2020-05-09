@@ -1,11 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  BrowserRouter as Router,
-  Link,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
 import SvgInfo from "../../assets/Svg/info";
 import SvgMessages from "../../assets/Svg/messages";

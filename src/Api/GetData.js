@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useGetData(owner, repo, band) {
+export function GetData(owner, repo, band) {
   const [data, setData] = useState([]);
   const API = `https://api.github.com/repos/${owner}/${repo}/issues`;
   useEffect(() => {
@@ -16,6 +16,23 @@ export function useGetData(owner, repo, band) {
     }
     band ? Data() : console.log("");
   }, [API, band, owner, repo, data]);
+  return [data, band];
+}
+export function GetComments(API, band) {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    async function Data() {
+      try {
+        const response = await fetch(API);
+
+        setData(await response.json());
+        console.log(data);
+      } catch (error) {
+        console.log("null");
+      }
+    }
+    band ? Data() : console.log("");
+  }, [API, band, data]);
   return [data, band];
 }
 export function loadmessages(datacountrie) {
