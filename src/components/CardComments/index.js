@@ -3,21 +3,28 @@ import { Link } from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
 import Emotico from "../../assets/Svg/emotico";
 import Grid from "@material-ui/core/Grid";
-
-function CardComments(props) {
-  let lec =
-    "without seeing the full .log file its a bit of a stab in the dark  diagnoses' to what wrong.\r\n1. try \"CRA in other terminal other than VSCode...ie terminal(mac) commandProment/ (Win)\r\n2. Uninstall Node & reinstalling.\r\n\r\nThese would be my starting point";
-
+import ReactMarkdown from "react-markdown";
+import htmlParser from "react-markdown/plugins/html-parser";
+import ReactHtml from "react-markdown/with-html";
+const parseHtml = htmlParser({
+  isValidNode: (node) => node.type !== "script",
+  processingInstructions: [
+    /* ... */
+  ],
+});
+function CardComments({ info }) {
   return (
-    <Grid container={true} xs={12} className={Styles.center}>
+    <Grid container={true} className={Styles.center}>
       <Grid item={true} xs={12} sm={8}>
         <div className={Styles.card}>
           <div className={Styles.header}>
-            <Link>"william"</Link>
+            <Link to="/comments">"william"</Link>
             <Emotico />
           </div>
           <div className={Styles.body}>
-            <pre>{lec}</pre>
+            <div>
+              <ReactHtml source={info.body} escapeHtml={false} />
+            </div>
           </div>
         </div>
       </Grid>

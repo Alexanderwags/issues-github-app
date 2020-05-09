@@ -9,7 +9,7 @@ export function GetData(owner, repo, band) {
         const response = await fetch(API);
 
         setData(await response.json());
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.log("null");
       }
@@ -26,7 +26,7 @@ export function GetComments(API, band) {
         const response = await fetch(API);
 
         setData(await response.json());
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.log("null");
       }
