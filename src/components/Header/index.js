@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Styles from "./styles/Styles.module.scss";
 import { GetComments } from "../../Api/GetData";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Header(props) {
   const [band, setband] = useState(false);
@@ -23,11 +22,7 @@ function Header(props) {
 
   return (
     <div className={Styles.header}>
-      {enc === false ? (
-        <CircularProgress disableShrink />
-      ) : (
-        <img src={img} alt="header" />
-      )}
+      {enc === false ? <></> : <img src={img} alt="header" />}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import RowData from "../components/RowData";
 import Pagination from "@material-ui/lab/Pagination";
 import Styles from "./styles/Home/Styles.module.scss";
 const Home = ({ Data, pagi = 2 }) => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   let pages = Data.map((inf) => {
     return <RowData data={inf} key={inf.id} />;

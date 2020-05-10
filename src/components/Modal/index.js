@@ -61,42 +61,46 @@ export default function SimpleModal({ GetInfo }) {
     setRepo(e.target.value);
   }
   const body = (
-    <form
-      noValidate
-      autoComplete="off"
-      onSubmit={handleSubmit}
-      className="form-search"
-    >
-      <FormControl>
-        <TextField
-          required
-          id="standard-required"
-          label="Enter Owner"
-          value={owner}
-          onChange={onChangeOwner}
-          placeholder="Enter a Owner  "
-        />
-      </FormControl>
-      <FormControl>
-        <TextField
-          required
-          id="standard-required"
-          label="Enter Repo"
-          value={repo}
-          onChange={onChangeRepo}
-          placeholder="Enter Repo"
-        />
-      </FormControl>
-
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        style={{ background: "#2a67a5" }}
+    <div className="search">
+      <h1>Welcome </h1>
+      <h1> Github Issues beta</h1>
+      <form
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        className="form-search"
       >
-        Search
-      </Button>
-    </form>
+        <FormControl>
+          <TextField
+            required
+            id="standard-required"
+            label="Enter Owner"
+            value={owner}
+            onChange={onChangeOwner}
+            placeholder="Enter a Owner  "
+          />
+        </FormControl>
+        <FormControl>
+          <TextField
+            required
+            id="standard-required"
+            label="Enter Repo"
+            value={repo}
+            onChange={onChangeRepo}
+            placeholder="Enter Repo"
+          />
+        </FormControl>
+
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          style={{ background: "#2a67a5" }}
+        >
+          Search
+        </Button>
+      </form>
+    </div>
   );
 
   return (

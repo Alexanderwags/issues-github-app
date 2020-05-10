@@ -121,6 +121,7 @@ function Comments(props) {
   const [band, setband] = useState(false);
   const [enc, setenc] = useState(false);
   const [inf, setinf] = GetComments(props.api.detail, band);
+  const [inf2, setinf2] = GetComments(props.api.url, band);
   try {
     if (Object.entries(inf).length === 0 && band === false) {
       console.log("comments");
@@ -133,13 +134,15 @@ function Comments(props) {
   } catch (error) {}
   return (
     <div className={Styles.groupCard}>
-      {/* {inf.map((info) => (
-        <Card info={info} key={info.id} />
-      ))} */}
       {enc === false ? (
         <CircularProgress disableShrink />
       ) : (
-        inf.map((info) => <Card info={info} key={info.id} />)
+        <>
+          {console.log(inf2)}
+          {inf.map((info) => (
+            <Card info={info} key={info.id} />
+          ))}
+        </>
       )}
     </div>
   );

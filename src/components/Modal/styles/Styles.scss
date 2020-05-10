@@ -2,25 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .MuiInputBase-input,
-  .MuiFormLabel-root {
-    color: white;
-  }
-  .MuiInput-underline:hover:not(.Mui-disabled):before {
-    border-color: yellow;
-  }
-  .MuiInput-underline:before {
-    border-color: white;
-  }
 }
-.form-search {
+.search {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  input {
-    margin-top: 10px;
+  max-width: 500px;
+  height: 250px;
+  width: 80%;
+  background-color: whitesmoke;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  .form-search {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    input {
+      margin-top: 10px;
+    }
+    width: 80%;
   }
-  width: 50%;
 }
 .pre-load {
   display: flex;

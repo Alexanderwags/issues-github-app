@@ -17,7 +17,7 @@ const RowData = ({ data }) => {
           <Link
             to={{
               pathname: "/comments",
-              state: { detail: data.comments_url },
+              state: { detail: data.comments_url, url: data.url },
             }}
           >
             <SvgMessages />
