@@ -116,22 +116,29 @@ const array = [
   },
 ];
 function Comments(props) {
-  // const [band, setband] = useState(false);
-  // const [inf, setinf] = GetComments(props.api.detail, band);
-  // try {
-  //   if (Object.entries(inf).length === 0 && band === false) {
-  //     console.log("comments");
-  //     setband(true);
-  //   } else if (Object.entries(inf).length > 0 && band) {
-  //     console.log("si hay comments");
-  //     setband(false);
-  //   }
-  // } catch (error) {}
+  const [band, setband] = useState(false);
+  const [enc, setenc] = useState(false);
+  const [inf, setinf] = GetComments(props.api.detail, band);
+  try {
+    if (Object.entries(inf).length === 0 && band === false) {
+      console.log("comments");
+      setband(true);
+    } else if (Object.entries(inf).length > 0 && band) {
+      console.log("si hay comments");
+      setband(false);
+      setenc(true);
+    }
+  } catch (error) {}
   return (
     <div className={Styles.groupCard}>
-      {array.map((info) => (
+      {/* {inf.map((info) => (
         <Card info={info} key={info.id} />
-      ))}
+      ))} */}
+      {enc === false ? (
+        <h1>Cargando ...</h1>
+      ) : (
+        inf.map((info) => <Card info={info} key={info.id} />)
+      )}
     </div>
   );
 }

@@ -17,8 +17,7 @@ function Router() {
   const [inf, setinf] = GetData(owner, repo, band);
 
   try {
-    if (inf.length === 0) {
-    } else if (inf.length > 0 && band) {
+    if (inf.length > 0 && band) {
       setimg(inf[0].repository_url);
       setpagi(inf.length / 10);
       setband(false);

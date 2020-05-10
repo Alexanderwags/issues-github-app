@@ -15,16 +15,15 @@ const parseHtml = htmlParser({
 function CardComments({ info }) {
   return (
     <Grid container={true} className={Styles.center}>
-      <Grid item={true} xs={12} sm={8}>
+      <Grid item={true} xs={12} lg={8}>
         <div className={Styles.card}>
           <div className={Styles.header}>
-            <Link to="/comments">"william"</Link>
+            <Link to="/comments">{info.user.login}</Link>
+            <span>commented {info.updated_at}</span>
             <Emotico />
           </div>
           <div className={Styles.body}>
-            <div>
-              <ReactHtml source={info.body} escapeHtml={false} />
-            </div>
+            <ReactMarkdown source={info.body} escapeHtml={false} />
           </div>
         </div>
       </Grid>
