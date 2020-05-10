@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { GetComments } from "../Api/GetData";
 import Card from "../components/CardComments";
 import Styles from "./styles/Comments/Styles.module.scss";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 const array = [
   {
     url:
@@ -135,7 +137,7 @@ function Comments(props) {
         <Card info={info} key={info.id} />
       ))} */}
       {enc === false ? (
-        <h1>Cargando ...</h1>
+        <CircularProgress disableShrink />
       ) : (
         inf.map((info) => <Card info={info} key={info.id} />)
       )}

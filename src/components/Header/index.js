@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Styles from "./styles/Styles.module.scss";
 import { GetComments } from "../../Api/GetData";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 function Header(props) {
   const [band, setband] = useState(false);
   const [img, setimg] = useState("");
   const [inf, setinf] = GetComments(props.img, band);
+  const [enc, setenc] = useState(false);
   try {
     if (Object.entries(inf).length === 0 && band === false) {
       console.log("vacia imagen");
@@ -13,14 +16,18 @@ function Header(props) {
     } else if (Object.entries(inf).length > 0 && band) {
       console.log("hay imagen");
       setimg(inf.owner.avatar_url);
+      setenc(true);
       setband(false);
     }
   } catch (error) {}
 
   return (
     <div className={Styles.header}>
-      <img src={img} alt="header" />
-      {console.log()}
+      {enc === false ? (
+        <CircularProgress disableShrink />
+      ) : (
+        <img src={img} alt="header" />
+      )}
     </div>
   );
 }
