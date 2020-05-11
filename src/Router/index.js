@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Routerr, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import Comments from "../pages/Comments";
 import Data from "../assets/dataText.json";
@@ -50,6 +51,7 @@ function Router() {
           <Route render={() => <h1>No encontrado</h1>} /> />
         </Switch>
       </Routerr>
+      <Footer />
     </>
   );
 }

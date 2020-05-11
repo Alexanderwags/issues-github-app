@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Styles from "./styles/Styles.module.scss";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
 import Grid from "@material-ui/core/Grid";
+import "aos/dist/aos.css";
+import AOS from "aos";
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -13,9 +15,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Aside() {
   const classes = useStyles();
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   return (
-    <div className={Styles.container}>
+    <div className={Styles.container} data-aos="zoom-in">
       <div className={Styles.assignees}>
         <h3>Assignees</h3>
       </div>

@@ -8,6 +8,8 @@
     border: 1px solid #d1d5da;
     border-radius: 3px;
     position: relative;
+    position: relative;
+    width: 95%;
     .header {
       display: flex;
       justify-content: space-between;
@@ -55,5 +57,6 @@
     display: flex;
     justify-content: center;
     align-self: center;
+    padding: 16px 0;
   }
 }

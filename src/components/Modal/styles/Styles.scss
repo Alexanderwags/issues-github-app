@@ -3,6 +3,16 @@
   justify-content: center;
   align-items: center;
 }
+.MuiInput-underline:after {
+  border-bottom: 2px solid #e6e7ec !important;
+}
+.MuiFormLabel-root.Mui-focused,
+.MuiInputLabel-formControl {
+  color: white !important;
+}
+.search .form-search input {
+  color: white;
+}
 .search {
   display: flex;
   justify-content: center;
@@ -11,7 +21,24 @@
   max-width: 500px;
   height: 250px;
   width: 80%;
-  background-color: whitesmoke;
+  background: #499bea;
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, #499bea),
+    color-stop(100%, #00affe)
+  );
+  background: -o-linear-gradient(left, #499bea 0%, #00affe 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#499bea),
+    to(#00affe)
+  );
+  background: linear-gradient(to right, #499bea 0%, #00affe 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#499bea", endColorstr="#00affe", GradientType=1 );
+  color: white;
   padding-top: 50px;
   padding-bottom: 50px;
   .form-search {
@@ -21,6 +48,7 @@
 
     input {
       margin-top: 10px;
+      margin-bottom: 10px;
     }
     width: 80%;
   }

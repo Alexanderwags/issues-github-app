@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Styles from "./styles/Styles.module.scss";
 import { GetComments } from "../../Api/GetData";
-
+import "aos/dist/aos.css";
+import AOS from "aos";
 function Header(props) {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   const [band, setband] = useState(false);
   const [img, setimg] = useState("");
   const [inf, setinf] = GetComments(props.img, band);
@@ -25,7 +31,12 @@ function Header(props) {
       {enc === false ? (
         <></>
       ) : (
-        <img src={img} alt="header" className={Styles.img} />
+        <img
+          src={img}
+          alt="header"
+          className={Styles.img}
+          data-aos="flip-right"
+        />
       )}
     </div>
   );

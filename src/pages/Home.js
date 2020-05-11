@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TableData from "../components/TableData";
 import RowData from "../components/RowData";
 import Pagination from "@material-ui/lab/Pagination";
 import Styles from "./styles/Home/Styles.module.scss";
+import "aos/dist/aos.css";
+import AOS from "aos";
 const Home = ({ Data, pagi = 2 }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   const [page, setPage] = useState(1);
-
   let pages = Data.map((inf) => {
     return <RowData data={inf} key={inf.id} />;
   });
@@ -26,7 +32,7 @@ const Home = ({ Data, pagi = 2 }) => {
   }
   return (
     <div>
-      <TableData>{section(page)}</TableData>
+      <TableData data-aos="fade-up">{section(page)}</TableData>
 
       <Pagination
         count={pagi}
@@ -34,6 +40,7 @@ const Home = ({ Data, pagi = 2 }) => {
         onChange={handleChange}
         color="primary"
         className={Styles.pagin}
+        data-aos="zoom-in"
       />
     </div>
   );

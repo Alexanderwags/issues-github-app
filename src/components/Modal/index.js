@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import TextField from "@material-ui/core/TextField";
 import { FormControl, Button } from "@material-ui/core";
 import "./styles/Styles.scss";
 import PropTypes from "prop-types";
+import "aos/dist/aos.css";
+import AOS from "aos";
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -32,6 +34,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SimpleModal({ GetInfo }) {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
@@ -61,9 +68,8 @@ export default function SimpleModal({ GetInfo }) {
     setRepo(e.target.value);
   }
   const body = (
-    <div className="search">
-      <h1>Welcome </h1>
-      <h1> Github Issues beta</h1>
+    <div className="search" data-aos="zoom-in">
+      <h1> Github Issues</h1>
       <form
         noValidate
         autoComplete="off"
@@ -94,8 +100,7 @@ export default function SimpleModal({ GetInfo }) {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
-          style={{ background: "#2a67a5" }}
+          style={{ background: "white", color: "#499bea" }}
         >
           Search
         </Button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
 import Emotico from "../../assets/Svg/emotico";
@@ -7,6 +7,8 @@ import Avatar from "@material-ui/core/Avatar";
 import ReactMarkdown from "react-markdown";
 import htmlParser from "react-markdown/plugins/html-parser";
 import ReactHtml from "react-markdown/with-html";
+import "aos/dist/aos.css";
+import AOS from "aos";
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
   processingInstructions: [
@@ -14,8 +16,13 @@ const parseHtml = htmlParser({
   ],
 });
 function CardComments({ info }) {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   return (
-    <Grid container={true} className={Styles.center}>
+    <Grid container={true} className={Styles.center} data-aos="zoom-in">
       <Grid item={true} xs={1}>
         <Avatar
           alt="Cindy Baker"

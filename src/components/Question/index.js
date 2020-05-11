@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import Grid from "@material-ui/core/Grid";
 import Emotico from "../../assets/Svg/emotico";
@@ -6,10 +6,16 @@ import { Link } from "react-router-dom";
 import "./styles/estilos.scss";
 import Styles from "./styles/Styles.module.scss";
 import Avatar from "@material-ui/core/Avatar";
-
+import "aos/dist/aos.css";
+import AOS from "aos";
 function Question({ data }) {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   return (
-    <Grid container={true} className={Styles.center}>
+    <Grid container={true} className={Styles.center} data-aos="zoom-in">
       <Grid item={true} xs={1}>
         <Avatar
           alt="Cindy Baker"
