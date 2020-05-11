@@ -37,7 +37,16 @@ const RowData = ({ data }) => {
       <div className={Styles.body}>
         <div className={Styles.header}>
           <Link to="/">{data.title}</Link>
-          <Link to="/">ds</Link>
+          {data.labels.map((inf) => (
+            <Link
+              to="/"
+              key={inf.id}
+              className={Styles.label}
+              style={{ backgroundColor: `#${inf.color}` }}
+            >
+              {inf.name}
+            </Link>
+          ))}
         </div>
 
         <div className={Styles.Footer}>

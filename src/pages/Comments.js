@@ -3,7 +3,7 @@ import { GetComments } from "../Api/GetData";
 import Card from "../components/CardComments";
 import Styles from "./styles/Comments/Styles.module.scss";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
+import Question from "../components/Question";
 const array = [
   {
     url:
@@ -138,7 +138,7 @@ function Comments(props) {
         <CircularProgress disableShrink />
       ) : (
         <>
-          {console.log(inf2)}
+          <Question data={inf2} />
           {inf.map((info) => (
             <Card info={info} key={info.id} />
           ))}

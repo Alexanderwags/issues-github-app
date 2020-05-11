@@ -22,7 +22,11 @@ function Header(props) {
 
   return (
     <div className={Styles.header}>
-      {enc === false ? <></> : <img src={img} alt="header" />}
+      {enc === false ? (
+        <></>
+      ) : (
+        <img src={img} alt="header" className={Styles.img} />
+      )}
     </div>
   );
 }
