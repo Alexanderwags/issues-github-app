@@ -23,7 +23,7 @@ function CardComments({ info }) {
           src={info.user.avatar_url}
         />
       </Grid>
-      <Grid item={true} xs={12} lg={8}>
+      <Grid item={true} xs={12} lg={11}>
         <div className={Styles.card}>
           <div className={Styles.header}>
             <Link to="/comments">{info.user.login}</Link>
