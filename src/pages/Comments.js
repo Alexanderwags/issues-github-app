@@ -4,11 +4,14 @@ import Card from "../components/CardComments";
 import Styles from "./styles/Comments/Styles.module.scss";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Grid from "@material-ui/core/Grid";
 import Question from "../components/Question";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import InfoIcon from "@material-ui/icons/Info";
+import moment from "moment";
+import Aside from "../components/Aside";
+
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -17,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 function Comments(props) {
   const classes = useStyles();
-
   const [band, setband] = useState(false);
   const [enc, setenc] = useState(false);
   const [inf, setinf] = GetComments(props.api.detail, band);
   const [inf2, setinf2] = GetComments(props.api.url, band);
+  let date = "";
   try {
     if (
       Object.entries(inf).length === 0 &&
@@ -38,40 +41,54 @@ function Comments(props) {
       console.log("si hay comments");
       setband(false);
       setenc(true);
+      date = moment(inf2.updated_at).format("dddd");
     }
   } catch (error) {}
+
   return (
     <div className={Styles.groupCard}>
       {enc === false ? (
         <CircularProgress disableShrink />
       ) : (
         <>
-          <div className={Styles.header}>
-            <h1 className={Styles.title}>
-              {inf2.title}#<span>{inf2.number}</span>
-            </h1>
-            <div className={Styles.body}>
-              <Button
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-                startIcon={<InfoIcon />}
-                value="open"
-              />
-              <p>
-                {inf2.user.login}
-                opened this issue
-                {inf2.updated_at}
-                {inf.length}comments
-              </p>
-            </div>
-          </div>
+          <Grid container={true} className={Styles.center}>
+            <Grid item={true} xs={12} lg={9}>
+              <div className={Styles.header}>
+                <h1 className={Styles.title}>
+                  {inf2.title}#<span>{inf2.number}</span>
+                </h1>
+                <div className={Styles.body}>
+                  <Button
+                    variant="contained"
+                    style={{ backgroundColor: "#2cbe4e", color: "white" }}
+                    className={classes.button}
+                    startIcon={<InfoIcon />}
+                  >
+                    open
+                  </Button>
+                  <p>
+                    <span>{inf2.user.login}</span>
+                    <span>opened this issue</span>
+                    <span>{date}</span>
+                    <span>{inf.length}comments</span>
+                  </p>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
 
-          <Question data={inf2} />
+          <Grid container={true} xs={12} lg={9}>
+            <Grid container={true} xs={8}>
+              <Question data={inf2} />
+              {inf.map((info) => (
+                <Card info={info} key={info.id} />
+              ))}
+            </Grid>
 
-          {inf.map((info) => (
-            <Card info={info} key={info.id} />
-          ))}
+            <Grid item={true} xs={4}>
+              <Aside />
+            </Grid>
+          </Grid>
         </>
       )}
     </div>

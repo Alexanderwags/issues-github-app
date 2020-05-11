@@ -16,14 +16,16 @@ const parseHtml = htmlParser({
 function CardComments({ info }) {
   return (
     <Grid container={true} className={Styles.center}>
+      <Grid item={true} xs={1}>
+        <Avatar
+          alt="Cindy Baker"
+          className={Styles.avatar}
+          src={info.user.avatar_url}
+        />
+      </Grid>
       <Grid item={true} xs={12} lg={8}>
         <div className={Styles.card}>
           <div className={Styles.header}>
-            <Avatar
-              alt="Cindy Baker"
-              className={Styles.avatar}
-              src={info.user.avatar_url}
-            />
             <Link to="/comments">{info.user.login}</Link>
             <span>commented {info.updated_at}</span>
             <Emotico />

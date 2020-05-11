@@ -10,4 +10,30 @@
     font-weight: 400;
     line-height: 1.125;
   }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e1e4e8;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #586069;
+    height: 70px;
+    .a {
+      background-color: #2cbe4e;
+    }
+    p {
+      font-size: 14px;
+      color: #586069;
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
 }

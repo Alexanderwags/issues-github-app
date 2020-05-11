@@ -10,14 +10,17 @@ import Avatar from "@material-ui/core/Avatar";
 function Question({ data }) {
   return (
     <Grid container={true} className={Styles.center}>
-      <Grid item={true} xs={12} lg={8}>
-        <div className={Styles.card}>
-          <div className={Styles.header}>
-            <Avatar
+      <Grid item={true} xs={1}>
+      <Avatar
               alt="Cindy Baker"
               className={Styles.avatar}
               src={data.user.avatar_url}
             />
+      </Grid>
+      <Grid item={true} xs={12} lg={8}>
+        <div className={Styles.card}>
+          <div className={Styles.header}>
+            
             <Link to="/comments">{data.user.login}</Link>
             <span>commented {data.updated_at}</span>
             <Emotico />

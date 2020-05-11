@@ -52,5 +52,9 @@
     display: flex;
     justify-content: center;
     align-self: center;
+    padding: 16px 0;
+  }
+  .center::before {
+    content: "";
   }
 }
