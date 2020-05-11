@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
 import Emotico from "../../assets/Svg/emotico";
 import Grid from "@material-ui/core/Grid";
+import Avatar from "@material-ui/core/Avatar";
 import ReactMarkdown from "react-markdown";
 import htmlParser from "react-markdown/plugins/html-parser";
 import ReactHtml from "react-markdown/with-html";
@@ -18,6 +19,11 @@ function CardComments({ info }) {
       <Grid item={true} xs={12} lg={8}>
         <div className={Styles.card}>
           <div className={Styles.header}>
+            <Avatar
+              alt="Cindy Baker"
+              className={Styles.avatar}
+              src={info.user.avatar_url}
+            />
             <Link to="/comments">{info.user.login}</Link>
             <span>commented {info.updated_at}</span>
             <Emotico />

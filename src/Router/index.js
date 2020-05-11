@@ -21,17 +21,14 @@ function Router() {
       setimg(inf[0].repository_url);
       setpagi(inf.length / 10);
       setband(false);
+      console.log(img);
+      // console.log(inf);
     }
   } catch {}
   function GetInfo(ow, rep) {
     setowner(ow);
     setrepo(rep);
     setband(true);
-    try {
-      //console.log(inf);
-    } catch (e) {
-      console.log(e);
-    }
   }
   return (
     <>

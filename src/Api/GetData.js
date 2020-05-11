@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 export function GetData(owner, repo, band) {
   const [data, setData] = useState([]);
+  const [enc, setEnc] = useState(false);
+
   const API = `https://api.github.com/repos/${owner}/${repo}/issues`;
   useEffect(() => {
     async function Data() {
@@ -9,17 +11,18 @@ export function GetData(owner, repo, band) {
         const response = await fetch(API);
 
         setData(await response.json());
-        // console.log(data);
+        console.log(data);
       } catch (error) {
         console.log("null");
       }
     }
-    band ? Data() : console.log("");
+    band ? Data() : console.log("no entro");
   }, [API, band, owner, repo, data]);
   return [data, band];
 }
 export function GetComments(API, band) {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     async function Data() {
       try {
