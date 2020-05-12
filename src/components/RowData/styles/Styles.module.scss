@@ -1,7 +1,18 @@
 :local {
+  // .MuiGrid-grid-xs-12 {
+  //   @media (max-width: 600px) {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
+  // }
+
   .rowdata {
     border-top: 1px solid rgb(225, 228, 232);
+    border-left: 1px solid rgb(225, 228, 232);
+    border-right: 1px solid rgb(225, 228, 232);
     background-color: white;
+    width: 100%;
     min-height: 80px;
     height: 100%;
     display: flex;
@@ -23,6 +34,7 @@
     width: 90%;
     .header {
       display: flex;
+      flex-wrap: wrap;
     }
     a {
       color: black;
@@ -36,6 +48,7 @@
   }
   .Footer {
     display: flex;
+    flex-wrap: wrap;
   }
   .messages {
     display: flex;

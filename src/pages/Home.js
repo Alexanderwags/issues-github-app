@@ -31,7 +31,7 @@ const Home = ({ Data, pagi = 2 }) => {
     return array;
   }
   return (
-    <div>
+    <div className={Styles.home}>
       <TableData data-aos="fade-up">{section(page)}</TableData>
 
       <Pagination

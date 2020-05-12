@@ -43,7 +43,11 @@ function Aside({ data }) {
         </div>
         <Button
           variant="contained"
-          style={{ backgroundColor: "#2cbe4e", color: "white" }}
+          style={{
+            color: "#24292e",
+            backgroundColor: "#eff3f6",
+            backgroundImage: "linear-gradient(-180deg,#fafbfc,#eff3f6 90%);",
+          }}
           className={classes.button}
           startIcon={<VolumeUpIcon />}
         >

@@ -37,7 +37,7 @@ function Question({ data }) {
 
             <div className={Styles.config}>
               <Emotico />
-              <MenuItem></MenuItem>
+              <MenuItem className={Styles.transform}></MenuItem>
             </div>
           </div>
           <div className={Styles.body}>

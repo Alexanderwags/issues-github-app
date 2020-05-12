@@ -1,4 +1,13 @@
 :local {
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+    width: 100%;
+    max-width: 980px;
+  }
   .pagin {
     display: flex;
     justify-content: center;

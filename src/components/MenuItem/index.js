@@ -3,7 +3,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-
+import Styles from "./styles/Styles.module.scss";
 const options = [
   "None",
   "Atria",
@@ -36,7 +36,7 @@ export default function LongMenu() {
   };
 
   return (
-    <div>
+    <div className={Styles.menu}>
       <IconButton
         aria-label="more"
         aria-controls="long-menu"

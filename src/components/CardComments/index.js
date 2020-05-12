@@ -10,6 +10,8 @@ import moment from "moment";
 import ReactHtml from "react-markdown/with-html";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import MenuItem from "../MenuItem";
+
 const parseHtml = htmlParser({
   isValidNode: (node) => node.type !== "script",
   processingInstructions: [
@@ -40,9 +42,9 @@ function CardComments({ info }) {
                 commented {moment(info.updated_at).startOf("day").fromNow()}
               </span>
             </div>
-
             <div className={Styles.config}>
               <Emotico />
+              <MenuItem className={Styles.transform}></MenuItem>
             </div>
           </div>
           <div className={Styles.body}>
