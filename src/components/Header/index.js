@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import Styles from "./styles/Styles.module.scss";
 import { GetComments } from "../../Api/GetData";
 import "aos/dist/aos.css";
@@ -41,7 +40,5 @@ function Header(props) {
     </div>
   );
 }
-
-Header.propTypes = {};
 
 export default Header;

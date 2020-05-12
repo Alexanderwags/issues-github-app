@@ -85,7 +85,7 @@ function Comments(props) {
             </Grid>
 
             <Grid item={true} xs={2} spacing={1}>
-              <Aside />
+              <Aside data={inf2} />
             </Grid>
           </Grid>
         </>

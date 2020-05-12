@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import VolumeUpIcon from "@material-ui/icons/VolumeUp";
-import Grid from "@material-ui/core/Grid";
 import "aos/dist/aos.css";
 import AOS from "aos";
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Aside() {
+function Aside({ data }) {
   const classes = useStyles();
   useEffect(() => {
     AOS.init({
