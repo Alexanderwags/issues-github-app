@@ -8,6 +8,8 @@ import Styles from "./styles/Styles.module.scss";
 import Avatar from "@material-ui/core/Avatar";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import moment from "moment";
+import MenuItem from "../MenuItem";
 function Question({ data }) {
   useEffect(() => {
     AOS.init({
@@ -26,9 +28,17 @@ function Question({ data }) {
       <Grid item={true} xs={12} lg={11}>
         <div className={Styles.card}>
           <div className={Styles.header}>
-            <Link to="/comments">{data.user.login}</Link>
-            <span>commented {data.updated_at}</span>
-            <Emotico />
+            <div className={Styles.info}>
+              <Link to="/comments">{data.user.login}</Link>
+              <span>
+                commented {moment(data.updated_at).startOf("day").fromNow()}
+              </span>
+            </div>
+
+            <div className={Styles.config}>
+              <Emotico />
+              <MenuItem></MenuItem>
+            </div>
           </div>
           <div className={Styles.body}>
             <ReactMarkdown source={data.body} escapeHtml={false} />

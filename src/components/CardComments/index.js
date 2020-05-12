@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import ReactMarkdown from "react-markdown";
 import htmlParser from "react-markdown/plugins/html-parser";
+import moment from "moment";
 import ReactHtml from "react-markdown/with-html";
 import "aos/dist/aos.css";
 import AOS from "aos";
@@ -33,9 +34,16 @@ function CardComments({ info }) {
       <Grid item={true} xs={12} lg={11}>
         <div className={Styles.card}>
           <div className={Styles.header}>
-            <Link to="/comments">{info.user.login}</Link>
-            <span>commented {info.updated_at}</span>
-            <Emotico />
+            <div className={Styles.info}>
+              <Link to="/comments">{info.user.login}</Link>
+              <span>
+                commented {moment(info.updated_at).startOf("day").fromNow()}
+              </span>
+            </div>
+
+            <div className={Styles.config}>
+              <Emotico />
+            </div>
           </div>
           <div className={Styles.body}>
             <ReactMarkdown source={info.body} escapeHtml={false} />

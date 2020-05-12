@@ -20,6 +20,18 @@
       border-bottom: 1px solid #d1d5da;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
+      .info {
+        display: flex;
+        align-items: center;
+        a,
+        span {
+          margin-right: 10px;
+        }
+      }
+      .config {
+        display: flex;
+        align-items: center;
+      }
       .avatar {
         height: auto;
         @media (min-width: 1260px) {
@@ -45,7 +57,7 @@
     }
     .body {
       padding: 15px;
-      overflow: visible;
+      overflow: auto;
       font-size: 14px;
     }
   }
