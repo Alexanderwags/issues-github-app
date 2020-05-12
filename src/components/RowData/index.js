@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
 import SvgInfo from "../../assets/Svg/info";
 import SvgMessages from "../../assets/Svg/messages";
-
+import "aos/dist/aos.css";
+import AOS from "aos";
 const RowData = ({ data }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  });
   function showMessages() {
     if (data.comments === 0) {
       return <></>;
@@ -28,7 +34,7 @@ const RowData = ({ data }) => {
     }
   }
   return (
-    <div className={Styles.rowdata}>
+    <div className={Styles.rowdata} data-aos="zoom-in">
       <div className={Styles.infor}>
         <Link to="/">
           <SvgInfo />
@@ -36,7 +42,14 @@ const RowData = ({ data }) => {
       </div>
       <div className={Styles.body}>
         <div className={Styles.header}>
-          <Link to="/">{data.title}</Link>
+          <Link
+            to={{
+              pathname: "/comments",
+              state: { detail: data.comments_url, url: data.url },
+            }}
+          >
+            {data.title}
+          </Link>
           {data.labels.map((inf) => (
             <Link
               to="/"
