@@ -5,20 +5,23 @@ export function GetData(owner, repo, band) {
   const [enc, setEnc] = useState(false);
 
   const API = `https://api.github.com/repos/${owner}/${repo}/issues`;
+
   useEffect(() => {
     async function Data() {
       try {
         const response = await fetch(API);
 
         setData(await response.json());
-        console.log(data);
+        //console.log(data);
+        setEnc(true);
       } catch (error) {
+        setEnc(false);
         console.log("null");
       }
     }
-    band ? Data() : console.log("no entro");
+    band ? Data() : setEnc(false);
   }, [API, band, owner, repo, data]);
-  return [data, band];
+  return [data, enc];
 }
 export function GetComments(API, band) {
   const [data, setData] = useState([]);

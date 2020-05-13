@@ -7,6 +7,8 @@ import "./styles/Styles.scss";
 import PropTypes from "prop-types";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { GetData } from "../../Api/GetData";
+
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -45,27 +47,35 @@ export default function SimpleModal({ GetInfo }) {
   const [open, setOpen] = useState(false);
   const [repo, setRepo] = useState("");
   const [owner, setOwner] = useState("");
+  const [band, setband] = useState(false);
+  const [inf, setinf] = GetData(owner, repo, band);
   const handleOpen = () => {
     setOpen(true);
   };
-
+  try {
+    //console.log(inf);
+    if (band && setinf) {
+      setband(false);
+      GetInfo(owner, repo, inf);
+    }
+  } catch (e) {
+    console.log(e);
+  }
   const handleClose = () => {
     setOpen(false);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      GetInfo(owner, repo);
-    } catch (e) {
-      console.log(e);
-    }
+    setband(true);
   };
 
   function onChangeOwner(e) {
     setOwner(e.target.value);
+    setband(false);
   }
   function onChangeRepo(e) {
     setRepo(e.target.value);
+    setband(false);
   }
   const body = (
     <div className="search" data-aos="zoom-in">
@@ -78,7 +88,7 @@ export default function SimpleModal({ GetInfo }) {
       >
         <FormControl>
           <TextField
-            required
+            required={true}
             id="standard-required"
             label="Enter Owner"
             value={owner}
