@@ -2,11 +2,16 @@
   .header {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex-direction: column;
     height: 500px;
+    overflow: hidden;
     .img {
       border-radius: 50%;
+      height: 250px;
+    }
+    .img1 {
       height: 250px;
     }
   }

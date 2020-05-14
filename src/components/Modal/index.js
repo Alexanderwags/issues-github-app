@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { GetData } from "../../Api/GetData";
-
+import Figure from "../../assets/Svg/Figure";
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -120,6 +120,7 @@ export default function SimpleModal({ GetInfo }) {
 
   return (
     <div className="pre-load">
+      {open === false ? <Figure /> : ""}
       <button type="button" onClick={handleOpen}>
         Search
       </button>

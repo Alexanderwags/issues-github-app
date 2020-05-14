@@ -3,6 +3,8 @@ import Styles from "./styles/Styles.module.scss";
 import { GetComments } from "../../Api/GetData";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import Figure from "../../assets/Svg/Figure";
+import ImgGit from "../../assets/Octocat.jpg";
 function Header(props) {
   useEffect(() => {
     AOS.init({
@@ -28,14 +30,24 @@ function Header(props) {
   return (
     <div className={Styles.header}>
       {enc === false ? (
-        <></>
+        <>
+          <h1 data-aos="fade-left">Git Hub Issues</h1>
+          <img
+            src={ImgGit}
+            alt="header"
+            className={Styles.img1}
+            data-aos="fade-right"
+          />
+        </>
       ) : (
-        <img
-          src={img}
-          alt="header"
-          className={Styles.img}
-          data-aos="flip-right"
-        />
+        <>
+          <img
+            src={img}
+            alt="header"
+            className={Styles.img}
+            data-aos="fade-right"
+          />
+        </>
       )}
     </div>
   );

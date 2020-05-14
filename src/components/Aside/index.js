@@ -29,6 +29,7 @@ function Aside({ data }) {
       </div>
       <div className={Styles.projects}>
         <h3>Projects</h3>
+        <p>None yet</p>
       </div>
       <div className={Styles.milestone}>
         <h3>Milestone</h3>
@@ -46,7 +47,6 @@ function Aside({ data }) {
           style={{
             color: "#24292e",
             backgroundColor: "#eff3f6",
-            backgroundImage: "linear-gradient(-180deg,#fafbfc,#eff3f6 90%);",
           }}
           className={classes.button}
           startIcon={<VolumeUpIcon />}

@@ -82,4 +82,18 @@
   .transform {
     transform: rotate(90deg);
   }
+  .cen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 1280px) {
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+  .avatar {
+    @media (max-width: 1279px) {
+      display: none;
+    }
+  }
 }

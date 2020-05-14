@@ -10,6 +10,7 @@ import { GetData } from "../Api/GetData";
 import "../Global/Styles.scss";
 import Alert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
+import Figure from "../assets/Svg/Figure";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -106,18 +107,23 @@ function Router() {
             render={(props) => {
               //console.log("de pana entro con que valor ? ", inf);
               return (
-                <>
+                <div className="comments">
                   <Modal GetInfo={GetInfo} />
                   {check()}
                   {/* <Home Data={inf} pagi={pagi} />; */}
-                </>
+                </div>
               );
             }}
           />
           <Route
             exact
             path="/comments"
-            render={(props) => <Comments api={props.location.state} />}
+            render={(props) => (
+              <>
+                <Figure />
+                <Comments api={props.location.state} />
+              </>
+            )}
           />
           <Route render={() => <h1>No encontrado</h1>} /> />
         </Switch>

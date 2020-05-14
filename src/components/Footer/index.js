@@ -3,7 +3,7 @@ import Styles from "./styles/Styles.module.scss";
 function Footer() {
   return (
     <div className={Styles.footer}>
-      <p>Developed by : @William_ws7</p>
+      <p className={Styles.name}>Developed by : @William_ws7</p>
     </div>
   );
 }

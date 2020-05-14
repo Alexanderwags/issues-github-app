@@ -84,14 +84,14 @@ function Comments(props) {
             </Grid>
           </Grid>
           <Grid container={true} xs={12} lg={9}>
-            <Grid container={true} xs={10} spacing={1}>
+            <Grid item={true} xs={12} lg={9}>
               <Question data={inf2} />
               {inf.map((info) => (
                 <Card info={info} key={info.id} />
               ))}
             </Grid>
 
-            <Grid item={true} xs={2} spacing={1}>
+            <Grid item={true} xs={12} lg={3}>
               <Aside data={inf2} />
             </Grid>
           </Grid>

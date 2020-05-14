@@ -26,14 +26,14 @@ function CardComments({ info }) {
   });
   return (
     <Grid container={true} className={Styles.center} data-aos="zoom-in">
-      <Grid item={true} xs={1}>
+      <Grid item={true} className={Styles.avatar} lg={1}>
         <Avatar
           alt="Cindy Baker"
           className={Styles.avatar}
           src={info.user.avatar_url}
         />
       </Grid>
-      <Grid item={true} xs={12} lg={11}>
+      <Grid item={true} xs={12} lg={11} className={Styles.cen}>
         <div className={Styles.card}>
           <div className={Styles.header}>
             <div className={Styles.info}>

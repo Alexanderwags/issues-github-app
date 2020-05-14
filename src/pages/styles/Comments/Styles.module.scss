@@ -65,4 +65,10 @@
     justify-content: center;
     align-items: center;
   }
+  .comments svg {
+    position: absolute;
+    top: -7px;
+    width: 90%;
+    left: -20px;
+  }
 }

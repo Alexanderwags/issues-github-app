@@ -5,6 +5,7 @@
     align-items: center;
     flex-direction: column;
     width: 90%;
+    margin: 0 auto;
     .assignees {
       display: flex;
       flex-direction: column;
@@ -74,5 +75,9 @@
       font-size: 12px;
       color: #586069;
     }
+  }
+  p {
+    font-size: 12px;
+    color: #586069;
   }
 }
