@@ -120,7 +120,6 @@ function Router() {
             path="/comments"
             render={(props) => (
               <>
-                <Figure />
                 <Comments api={props.location.state} />
               </>
             )}

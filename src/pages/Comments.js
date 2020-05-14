@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import InfoIcon from "@material-ui/icons/Info";
 import moment from "moment";
 import Aside from "../components/Aside";
-
+import Figure from "../assets/Svg/Figure";
 const estilos = {
   button: {
     display: "flex",
@@ -56,6 +56,8 @@ function Comments(props) {
         <CircularProgress disableShrink />
       ) : (
         <>
+          <Figure className={Styles.fig} />
+
           <Grid container={true} className={Styles.center}>
             <Grid item={true} xs={12} lg={9}>
               <div className={Styles.header}>

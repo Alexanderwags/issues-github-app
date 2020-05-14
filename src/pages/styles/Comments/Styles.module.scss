@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
   }
   .title {
     font-size: 2rem;
@@ -70,5 +71,9 @@
     top: -7px;
     width: 90%;
     left: -20px;
+  }
+  .fig {
+    position: absolute;
+    top: 0;
   }
 }
