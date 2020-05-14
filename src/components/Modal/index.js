@@ -52,15 +52,14 @@ export default function SimpleModal({ GetInfo }) {
   const handleOpen = () => {
     setOpen(true);
   };
-  // try {
-  //   //console.log(inf);
-  //   if (band && setinf) {
-  //     setband(false);
-  //     GetInfo(inf);
-  //   }
-  // } catch (e) {
-  //   console.log(e);
-  // }
+  try {
+    if (false) {
+      GetInfo(owner, repo, true);
+      setband(false);
+    }
+  } catch (e) {
+    console.log(e);
+  }
   const handleClose = () => {
     setOpen(false);
   };

@@ -33,13 +33,13 @@ function Router() {
   const [inf, setinf] = useState([]);
 
   function GetInfo(ow, rep, info) {
-    setowner(ow);
-    setrepo(rep);
-    //setaux(inf);
-    setband(true);
-    setinf(info);
-    setimg(info[0].repository_url);
-    setpagi(info.length / 10);
+    // setowner(ow);
+    // setimg(info[0].repository
+    // setrepo(rep);
+    // //setaux(inf);
+    // setband(true);
+    // setinf(info);_url);
+    // setpagi(info.length / 10);
   }
   function check() {
     if (inf.message === "Not Found") {
