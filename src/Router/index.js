@@ -31,48 +31,6 @@ function Router() {
   const [cont, setcont] = useState(0);
   const classes = useStyles();
   const [inf, setinf] = useState([]);
-  // try {
-  //   console.log(setinf);
-  //   if (inf.length > 0 && band) {
-  //     setimg(inf[0].repository_url);
-  //     setpagi(inf.length / 10);
-  //     if (cont === 0) {
-  //       setband(false);
-  //     }
-  //     // if (cont > 0) {
-  //     //   if (aux[0].url !== inf[0].url) {
-  //     //     setband(false);
-  //     //     console.log("1");
-  //     //   } else if (aux[0].url === inf[0].url) {
-  //     //     setband(true);
-  //     //     console.log("2");
-  //     //   }
-  //     //   if (cont === 10) {
-  //     //     // setband(false);
-  //     //     console.log("no puede ser ");
-  //     //     setcont(0);
-  //     //   }
-  //     // }
-  //     if (setinf) {
-  //       setband(false);
-  //     }
-  //     setcont(cont + 1);
-
-  //     //setband(false);
-  //     //console.log(img);
-  //     //console.log("info ", inf);
-  //   }
-  //   if (inf.length === 0) {
-  //     //   console.log("verificacion ", inf);
-  //   }
-  // } catch {}
-  // try {
-  //   if (inf.length > 0 && band) {
-  //     setimg(inf[0].repository_url);
-  //     setpagi(inf.length / 10);
-  //     setband(false);
-  //   }
-  // } catch {}
 
   function GetInfo(ow, rep, info) {
     setowner(ow);
@@ -108,9 +66,7 @@ function Router() {
               //console.log("de pana entro con que valor ? ", inf);
               return (
                 <div className="comments">
-                  <Modal GetInfo={GetInfo} />
-                  {check()}
-                  {/* <Home Data={inf} pagi={pagi} />; */}
+                  <Home Data={inf} pagi={pagi} />
                 </div>
               );
             }}
