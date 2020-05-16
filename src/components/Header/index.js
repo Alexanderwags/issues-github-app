@@ -17,10 +17,8 @@ function Header(props) {
   const [enc, setenc] = useState(false);
   try {
     if (Object.entries(inf).length === 0 && band === false) {
-      console.log("vacia imagen");
       setband(true);
     } else if (Object.entries(inf).length > 0 && band) {
-      console.log("hay imagen");
       setimg(inf.owner.avatar_url);
       setenc(true);
       setband(false);

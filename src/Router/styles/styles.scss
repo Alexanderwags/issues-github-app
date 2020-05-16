@@ -1,0 +1,11 @@
+.comments .fig {
+  position: absolute;
+  top: -7px;
+  width: 90%;
+  width: 100%;
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  left: -20px;
+  height: auto !important;
+}

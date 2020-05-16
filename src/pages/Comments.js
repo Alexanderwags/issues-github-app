@@ -26,7 +26,7 @@ const estilos = {
 
 function Comments(props) {
   const [band, setband] = useState(false);
-  const [enc, setenc] = useState(false);
+  const [enc, setenc] = useState(0);
   const [inf, setinf] = GetComments(props.api.detail, band);
   const [inf2, setinf2] = GetComments(props.api.url, band);
   let date = "";
@@ -36,25 +36,161 @@ function Comments(props) {
       Object.entries(inf2).length === 0 &&
       band === false
     ) {
-      console.log("comments");
       setband(true);
     } else if (
       Object.entries(inf).length > 0 &&
       Object.entries(inf2).length > 0 &&
       band
     ) {
-      console.log("si hay comments");
       setband(false);
-      setenc(true);
+      setenc(1);
+      date = moment(inf2.updated_at).format("dddd");
+    } else if (
+      Object.entries(inf).length === 0 &&
+      Object.entries(inf2).length > 0 &&
+      band
+    ) {
+      setband(false);
+      setenc(2);
       date = moment(inf2.updated_at).format("dddd");
     }
   } catch (error) {}
+  function des() {
+    if (enc === 0) {
+      return <CircularProgress disableShrink />;
+    } else if (enc === 1) {
+      return (
+        <>
+          <Grid container={true} className={Styles.center}>
+            <Grid item={true} xs={12} lg={9}>
+              <div className={Styles.header}>
+                <h1 className={Styles.title}>
+                  {inf2.title}#<span>{inf2.number}</span>
+                </h1>
+                <div className={Styles.body}>
+                  <Button
+                    variant="contained"
+                    style={estilos.button}
+                    className={Styles.button}
+                    startIcon={<InfoIcon />}
+                  >
+                    open
+                  </Button>
+                  <p>
+                    <span>{inf2.user.login}</span>
+                    <span>opened this issue</span>
+                    <span>
+                      {moment(inf2.updated_at).startOf("day").fromNow()}
+                    </span>
+                    <span>{inf.length}comments</span>
+                  </p>
+                </div>
+              </div>
+            </Grid>{" "}
+            <>
+              <Grid container={true} className={Styles.center}>
+                <Grid item={true} xs={12} lg={9}>
+                  <div className={Styles.header}>
+                    <h1 className={Styles.title}>
+                      {inf2.title}#<span>{inf2.number}</span>
+                    </h1>
+                    <div className={Styles.body}>
+                      <Button
+                        variant="contained"
+                        style={estilos.button}
+                        className={Styles.button}
+                        startIcon={<InfoIcon />}
+                      >
+                        open
+                      </Button>
+                      <p>
+                        <span>{inf2.user.login}</span>
+                        <span>opened this issue</span>
+                        <span>
+                          {moment(inf2.updated_at).startOf("day").fromNow()}
+                        </span>
+                        <span>{inf.length}comments</span>
+                      </p>
+                    </div>
+                  </div>
+                </Grid>
+              </Grid>
+              <Grid container={true} xs={12} lg={9}>
+                <Grid item={true} xs={12} lg={9}>
+                  <Question data={inf2} />
+                  {inf.map((info) => (
+                    <Card info={info} key={info.id} />
+                  ))}
+                </Grid>
 
+                <Grid item={true} xs={12} lg={3}>
+                  <Aside data={inf2} />
+                </Grid>
+              </Grid>
+            </>
+          </Grid>
+          <Grid container={true} xs={12} lg={9}>
+            <Grid item={true} xs={12} lg={9}>
+              <Question data={inf2} />
+              {inf.map((info) => (
+                <Card info={info} key={info.id} />
+              ))}
+            </Grid>
+
+            <Grid item={true} xs={12} lg={3}>
+              <Aside data={inf2} />
+            </Grid>
+          </Grid>
+        </>
+      );
+    } else if (enc === 2) {
+      return (
+        <>
+          <Grid container={true} className={Styles.center}>
+            <Grid item={true} xs={12} lg={9}>
+              <div className={Styles.header}>
+                <h1 className={Styles.title}>
+                  {inf2.title}#<span>{inf2.number}</span>
+                </h1>
+                <div className={Styles.body}>
+                  <Button
+                    variant="contained"
+                    style={estilos.button}
+                    className={Styles.button}
+                    startIcon={<InfoIcon />}
+                  >
+                    open
+                  </Button>
+                  <p>
+                    <span>{inf2.user.login}</span>
+                    <span>opened this issue</span>
+                    <span>
+                      {moment(inf2.updated_at).startOf("day").fromNow()}
+                    </span>
+                    <span>{inf.length}comments</span>
+                  </p>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+          <Grid container={true} xs={12} lg={9}>
+            <Grid item={true} xs={12} lg={9}>
+              <Question data={inf2} />
+            </Grid>
+
+            <Grid item={true} xs={12} lg={3}>
+              <Aside data={inf2} />
+            </Grid>
+          </Grid>
+        </>
+      );
+    }
+  }
   return (
     <div className={Styles.groupCard}>
-      {enc === false ? (
+      {enc === 0 ? (
         <CircularProgress disableShrink />
-      ) : (
+      ) : enc === 1 ? (
         <>
           <Grid container={true} className={Styles.center}>
             <Grid item={true} xs={12} lg={9}>
@@ -89,6 +225,45 @@ function Comments(props) {
               {inf.map((info) => (
                 <Card info={info} key={info.id} />
               ))}
+            </Grid>
+
+            <Grid item={true} xs={12} lg={3}>
+              <Aside data={inf2} />
+            </Grid>
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Grid container={true} className={Styles.center}>
+            <Grid item={true} xs={12} lg={9}>
+              <div className={Styles.header}>
+                <h1 className={Styles.title}>
+                  {inf2.title}#<span>{inf2.number}</span>
+                </h1>
+                <div className={Styles.body}>
+                  <Button
+                    variant="contained"
+                    style={estilos.button}
+                    className={Styles.button}
+                    startIcon={<InfoIcon />}
+                  >
+                    open
+                  </Button>
+                  <p>
+                    <span>{inf2.user.login}</span>
+                    <span>opened this issue</span>
+                    <span>
+                      {moment(inf2.updated_at).startOf("day").fromNow()}
+                    </span>
+                    <span>{inf.length}comments</span>
+                  </p>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+          <Grid container={true} xs={12} lg={9}>
+            <Grid item={true} xs={12} lg={9}>
+              <Question data={inf2} />
             </Grid>
 
             <Grid item={true} xs={12} lg={3}>

@@ -11,6 +11,7 @@ import "../Global/Styles.scss";
 import Alert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import Figure from "../assets/Svg/Figure";
+import "./styles/styles.scss";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -119,10 +120,10 @@ function Router() {
             exact
             path="/comments"
             render={(props) => (
-              <>
-                <Figure />
+              <div className="comments">
+                <Figure className="fig" />
                 <Comments api={props.location.state} />
-              </>
+              </div>
             )}
           />
           <Route render={() => <h1>No encontrado</h1>} /> />

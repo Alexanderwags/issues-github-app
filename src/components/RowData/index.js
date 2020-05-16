@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Styles from "./styles/Styles.module.scss";
@@ -7,11 +7,45 @@ import SvgMessages from "../../assets/Svg/messages";
 import "aos/dist/aos.css";
 import AOS from "aos";
 const RowData = ({ data }) => {
+  const [bande, setbande] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
   });
+  function showtitle() {
+    if (data.comments === 0) {
+      return (
+        <>
+          <Link
+            to={{
+              pathname: "/comments",
+              state: {
+                detail: data.comments_url,
+                url: data.url,
+              },
+            }}
+          >
+            {data.title}
+          </Link>
+        </>
+      );
+    } else if (data.comments > 0) {
+      return (
+        <Link
+          to={{
+            pathname: "/comments",
+            state: {
+              detail: data.comments_url,
+              url: data.url,
+            },
+          }}
+        >
+          {data.title}
+        </Link>
+      );
+    }
+  }
   function showMessages() {
     if (data.comments === 0) {
       return <></>;
@@ -34,7 +68,7 @@ const RowData = ({ data }) => {
     }
   }
   return (
-    <div className={Styles.rowdata} data-aos="zoom-in">
+    <div className={Styles.rowdata}>
       <div className={Styles.infor}>
         <Link to="/">
           <SvgInfo />
@@ -42,14 +76,7 @@ const RowData = ({ data }) => {
       </div>
       <div className={Styles.body}>
         <div className={Styles.header}>
-          <Link
-            to={{
-              pathname: "/comments",
-              state: { detail: data.comments_url, url: data.url },
-            }}
-          >
-            {data.title}
-          </Link>
+          {showtitle()}
           {data.labels.map((inf) => (
             <Link
               to="/"

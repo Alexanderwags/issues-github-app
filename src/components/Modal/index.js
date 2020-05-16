@@ -48,25 +48,26 @@ export default function SimpleModal({ GetInfo }) {
   const [repo, setRepo] = useState("");
   const [owner, setOwner] = useState("");
   const [band, setband] = useState(false);
-  const [inf, setinf] = GetData(owner, repo, band);
+  //const [inf, setinf] = GetData(owner, repo, band);
   const handleOpen = () => {
     setOpen(true);
   };
-  try {
-    //console.log(inf);
-    if (band && setinf) {
-      setband(false);
-      GetInfo(owner, repo, inf);
-    }
-  } catch (e) {
-    console.log(e);
-  }
+  // try {
+  //   //console.log(inf);
+  //   if (band && setinf) {
+  //     setband(false);
+  //     GetInfo(owner, repo, inf);
+  //   }
+  // } catch (e) {
+  //   console.log(e);
+  // }
   const handleClose = () => {
     setOpen(false);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     setband(true);
+    GetInfo(owner, repo);
   };
 
   function onChangeOwner(e) {
