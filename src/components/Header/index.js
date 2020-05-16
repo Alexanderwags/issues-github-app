@@ -12,6 +12,8 @@ function Header(props) {
     });
   });
   const [band, setband] = useState(false);
+  const [text, settext] = useState("");
+  const [name, setname] = useState("");
   const [img, setimg] = useState("");
   const [inf, setinf] = GetComments(props.img, band);
   const [enc, setenc] = useState(false);
@@ -20,6 +22,8 @@ function Header(props) {
       setband(true);
     } else if (Object.entries(inf).length > 0 && band) {
       setimg(inf.owner.avatar_url);
+      settext(inf.owner.login);
+      setname(inf.name);
       setenc(true);
       setband(false);
     }
@@ -39,6 +43,9 @@ function Header(props) {
         </>
       ) : (
         <>
+          <div className={Styles.title}>
+            <h1>{text}</h1> / <h2>{name}</h2>
+          </div>
           <img
             src={img}
             alt="header"

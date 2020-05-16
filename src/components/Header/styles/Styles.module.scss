@@ -2,18 +2,25 @@
   .header {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    flex-direction: column;
-    height: 500px;
+    flex-direction: column-reverse;
+    height: 400px;
     overflow: hidden;
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1,
+      h2 {
+        font-weight: 300;
+      }
+    }
     .img {
-      border-radius: 50%;
-      height: 250px;
-      padding-bottom: 50px;
+      height: 200px;
     }
     .img1 {
-      height: 250px;
+      height: 200px;
     }
   }
 }
