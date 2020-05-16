@@ -67,7 +67,7 @@ export default function SimpleModal({ GetInfo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setband(true);
-    GetInfo(owner, repo);
+    GetInfo(owner, repo, band);
   };
 
   function onChangeOwner(e) {
