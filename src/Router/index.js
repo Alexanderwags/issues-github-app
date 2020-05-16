@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Routerr, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -27,62 +27,32 @@ function Router() {
   const [pagi, setpagi] = useState(0);
   const [band, setband] = useState(false);
   const [img, setimg] = useState("");
-  //const [inf, setinf] = GetData(owner, repo, band);
-  const [aux, setaux] = useState([]);
-  const [cont, setcont] = useState(0);
-  const classes = useStyles();
-  const [inf, setinf] = useState([]);
-  // try {
-  //   console.log(setinf);
-  //   if (inf.length > 0 && band) {
-  //     setimg(inf[0].repository_url);
-  //     setpagi(inf.length / 10);
-  //     if (cont === 0) {
-  //       setband(false);
-  //     }
-  //     // if (cont > 0) {
-  //     //   if (aux[0].url !== inf[0].url) {
-  //     //     setband(false);
-  //     //     console.log("1");
-  //     //   } else if (aux[0].url === inf[0].url) {
-  //     //     setband(true);
-  //     //     console.log("2");
-  //     //   }
-  //     //   if (cont === 10) {
-  //     //     // setband(false);
-  //     //     console.log("no puede ser ");
-  //     //     setcont(0);
-  //     //   }
-  //     // }
-  //     if (setinf) {
-  //       setband(false);
-  //     }
-  //     setcont(cont + 1);
+  const [enc, setenc] = useState(true);
+  const [inf, succes] = GetData(owner, repo, band);
+  useEffect(() => {
+    if (succes) {
+      setband(false);
+      setenc(false);
+    }
+    if (enc) {
+      GetInfo(owner, repo, band);
+      setenc(false);
+    }
+    try {
+      setimg(inf[0].repository_url);
+      setpagi(inf.length / 10);
+    } catch {}
+  });
 
-  //     //setband(false);
-  //     //console.log(img);
-  //     //console.log("info ", inf);
-  //   }
-  //   if (inf.length === 0) {
-  //     //   console.log("verificacion ", inf);
-  //   }
-  // } catch {}
-  // try {
-  //   if (inf.length > 0 && band) {
-  //     setimg(inf[0].repository_url);
-  //     setpagi(inf.length / 10);
-  //     setband(false);
-  //   }
-  // } catch {}
-
-  function GetInfo(ow, rep, info) {
+  function GetInfo(ow, rep, band) {
     setowner(ow);
     setrepo(rep);
-    //setaux(inf);
     setband(true);
-    setinf(info);
-    setimg(info[0].repository_url);
-    setpagi(info.length / 10);
+    setenc(true);
+    try {
+      setimg(inf[0].repository_url);
+      setpagi(inf.length / 10);
+    } catch {}
   }
   function check() {
     if (inf.message === "Not Found") {
