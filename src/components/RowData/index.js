@@ -51,7 +51,7 @@ const RowData = ({ data }) => {
       return <></>;
     } else {
       return (
-        <>
+        <div className={Styles.mess}>
           <Link to="/comments"></Link>
 
           <Link
@@ -63,7 +63,7 @@ const RowData = ({ data }) => {
             <SvgMessages />
           </Link>
           <span>{data.comments}</span>
-        </>
+        </div>
       );
     }
   }

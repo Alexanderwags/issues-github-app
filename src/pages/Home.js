@@ -38,7 +38,6 @@ const Home = ({ Data, pagi = 2 }) => {
         count={pagi}
         page={page}
         onChange={handleChange}
-        color="primary"
         className={Styles.pagin}
         data-aos="zoom-in"
       />
